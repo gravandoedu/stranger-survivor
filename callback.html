@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Autorização concluída — Stranger Survivor Publisher</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Autorização concluída</h1>
+    <p class="tagline">Copie o endereço completo desta página e cole no terminal do pipeline.</p>
+
+    <div class="cartao">
+      <p><strong>URL de retorno:</strong></p>
+      <p><code id="url"></code></p>
+      <div class="acoes">
+        <button class="botao" id="copiar" type="button">Copiar URL</button>
+      </div>
+    </div>
+
+    <p>
+      Não compartilhe essa URL: ela contém um código temporário de autorização. Depois de colar no
+      pipeline, você pode fechar esta página.
+    </p>
+  </main>
+  <script>
+    const campo = document.getElementById("url");
+    const botao = document.getElementById("copiar");
+    const endereco = window.location.href;
+    campo.textContent = endereco;
+    botao.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(endereco);
+        botao.textContent = "Copiado";
+      } catch (erro) {
+        const selecao = window.getSelection();
+        const intervalo = document.createRange();
+        intervalo.selectNodeContents(campo);
+        selecao.removeAllRanges();
+        selecao.addRange(intervalo);
+        botao.textContent = "Selecione e copie";
+      }
+    });
+  </script>
+</body>
+</html>
