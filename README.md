@@ -40,5 +40,4 @@ mostra a URL final para você copiar e colar no `tiktok-login`.
 
 ## Contato
 
-O email usado nas páginas é `gravandoedu@users.noreply.github.com`. Troque por um
-email que você realmente lê antes de enviar o app para revisão do TikTok.
+O email usado nas páginas é `gravandoedu@gmail.com`.
