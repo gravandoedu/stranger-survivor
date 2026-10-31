@@ -19,10 +19,26 @@ Versões em inglês: `terms.html` e `privacy.html`.
 
 ## Publicar
 
-1. No GitHub, abra **Settings → Pages**.
-2. Em **Source**, escolha **Deploy from a branch**.
-3. Selecione a branch `main` e a pasta `/ (root)`.
-4. Salve e espere o GitHub mostrar o endereço do site.
+O Pages está publicado pela branch `gh-pages`. Para atualizar o site:
+
+1. Faça as mudanças na branch `main` e envie.
+2. Sincronize a `gh-pages` e envie:
+
+```bash
+git checkout gh-pages
+git merge main --ff-only
+git push origin gh-pages
+git checkout main
+```
+
+3. O GitHub reconstrói o site sozinho.
+
+Se a `gh-pages` não avançar por fast-forward:
+
+```bash
+git branch -f gh-pages main
+git push origin gh-pages --force
+```
 
 ## Usar no TikTok
 
